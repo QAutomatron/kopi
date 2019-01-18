@@ -19,10 +19,8 @@ jobs:
         command: ./gradlew androidDependencies
 
     - save_cache:
-        keys:
-          - gradle-{{ checksum "build.gradle" }}
-          - gradle-{{ checksum  "sample/build.gradle" }}
-          - gradle-{{ checksum  "library/build.gradle" }}
+        key:
+          - gradle-{{ checksum "build.gradle" }}-{{ checksum  "sample/build.gradle" }}-{{ checksum  "library/build.gradle" }}
         paths:
           - ~/.gradle/caches
           - ~/.gradle/wrapper
