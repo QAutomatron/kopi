@@ -15,6 +15,7 @@ import com.qautomatron.kopi.library.element.action.GetTextAction
 import com.qautomatron.kopi.library.element.action.nestedScrollTo
 import com.qautomatron.kopi.library.wait.ViewMatcherWaiter
 import org.hamcrest.Matcher
+import org.hamcrest.Matchers.anyOf
 import org.hamcrest.Matchers.not
 
 class Element(private val matcher: Matcher<View>, private val root: Matcher<Root>? = null) {
@@ -28,9 +29,9 @@ class Element(private val matcher: Matcher<View>, private val root: Matcher<Root
             }
         }
 
-    fun shouldBePresent() = check(matches(isDisplayed()))
+    fun shouldBePresent() = check(matches(anyOf(isDisplayed(), not(isDisplayed()))))
 
-    fun shouldNotExist() = check(doesNotExist())
+    fun shouldNotBePresent() = check(doesNotExist())
 
     fun shouldBeDisplayed(value: Int = 100) = check(matches(isDisplayingAtLeast(value)))
 
@@ -68,6 +69,10 @@ class Element(private val matcher: Matcher<View>, private val root: Matcher<Root
 
     fun tap() = perform(click())
 
+    fun doubleTap() = perform(doubleClick())
+
+    fun longTap() = perform(longClick())
+
     fun scroll(nested: Boolean = false): Element {
         if (nested) {
             perform(nestedScrollTo())
@@ -96,7 +101,7 @@ class Element(private val matcher: Matcher<View>, private val root: Matcher<Root
     }
 
     fun waitForPresent(): Element {
-        waitFor(isDisplayed())
+        waitFor(anyOf(isDisplayed(), not(isDisplayed())))
         return this
     }
 
