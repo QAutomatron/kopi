@@ -6,7 +6,9 @@ import android.support.test.espresso.matcher.ViewMatchers.isRoot
 import android.view.View
 import org.hamcrest.Matcher
 
-
+/**
+ * Action to wait for specific amount of time
+ */
 object SleepAction {
 
     fun sleep(millis: Long): ViewAction {
