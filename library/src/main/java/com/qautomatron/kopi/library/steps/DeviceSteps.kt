@@ -12,6 +12,9 @@ import com.qautomatron.kopi.library.element.action.SleepAction
 import com.qautomatron.kopi.library.wait.WaitForActivity
 import org.junit.Assert.assertTrue
 
+/**
+ * Device related steps
+ */
 object DeviceSteps {
 
     /**

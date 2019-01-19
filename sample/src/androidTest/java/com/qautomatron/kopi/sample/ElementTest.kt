@@ -32,9 +32,8 @@ class ElementTest {
     }
 
     @Test
-    fun should_get_text() {
+    fun should_get_text_action_when_use_action() {
         val text = element.getText()
         assertEquals("Hello World!", text)
     }
-
 }

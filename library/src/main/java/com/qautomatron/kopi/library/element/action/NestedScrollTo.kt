@@ -12,6 +12,9 @@ import android.widget.FrameLayout
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 
+/**
+ * Action to perform scroll to element in NestedScrollView
+ */
 fun nestedScrollTo(): ViewAction {
     return object : ViewAction {
 
@@ -22,14 +25,12 @@ fun nestedScrollTo(): ViewAction {
             )
         }
 
-        override fun getDescription(): String {
-            return "View is not NestedScrollView"
-        }
+        override fun getDescription() = "View is not NestedScrollView"
 
         override fun perform(uiController: UiController, view: View) {
             try {
                 val nestedScrollView =
-                    findFirstParentLayoutOfClass(view, NestedScrollView::class.java) as NestedScrollView?
+                    findFirstParentLayoutOfClass(view, NestedScrollView::class.java) as? NestedScrollView?
                 if (nestedScrollView != null) {
                     nestedScrollView.scrollTo(0, view.top)
                 } else {
@@ -42,10 +43,8 @@ fun nestedScrollTo(): ViewAction {
                     .withCause(e)
                     .build()
             }
-
             uiController.loopMainThreadUntilIdle()
         }
-
     }
 }
 
@@ -62,13 +61,8 @@ private fun findFirstParentLayoutOfClass(view: View, parentClass: Class<out View
         incrementView = parent
         i++
     }
-    return parent as View?
+    return parent as? View?
 }
 
-private fun findParent(view: View): ViewParent {
-    return view.parent
-}
-
-private fun findParent(view: ViewParent): ViewParent {
-    return view.parent
-}
+private fun findParent(view: View) = view.parent
+private fun findParent(view: ViewParent) = view.parent

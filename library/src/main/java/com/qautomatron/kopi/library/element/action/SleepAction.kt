@@ -11,6 +11,10 @@ import org.hamcrest.Matcher
  */
 object SleepAction {
 
+    /**
+     * Sleep for amount of time
+     * @param millis time in millis
+     */
     fun sleep(millis: Long): ViewAction {
         return object : ViewAction {
 

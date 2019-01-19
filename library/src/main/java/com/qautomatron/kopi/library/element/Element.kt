@@ -18,6 +18,9 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.anyOf
 import org.hamcrest.Matchers.not
 
+/**
+ * Wrapper for onView with actions
+ */
 class Element(private val matcher: Matcher<View>, private val root: Matcher<Root>? = null) {
 
     val element: ViewInteraction
@@ -151,7 +154,7 @@ class Element(private val matcher: Matcher<View>, private val root: Matcher<Root
     fun getText(): String {
         val action = GetTextAction()
         perform(action)
-        return action.getTexts().toString()
+        return action.text.toString()
     }
 
     /**
