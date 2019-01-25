@@ -10,6 +10,9 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import org.hamcrest.Matchers.anyOf
 import org.hamcrest.Matchers.not
 
+/**
+ * Element assertions
+ */
 interface ElementAssertions<T> {
     val element: ViewInteraction
 

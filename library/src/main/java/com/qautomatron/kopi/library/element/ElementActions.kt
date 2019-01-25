@@ -9,6 +9,9 @@ import android.support.test.uiautomator.Direction
 import com.qautomatron.kopi.library.element.action.GetTextAction
 import com.qautomatron.kopi.library.element.action.nestedScrollTo
 
+/**
+ * Element actions
+ */
 interface ElementActions<T> {
 
     val element: ViewInteraction

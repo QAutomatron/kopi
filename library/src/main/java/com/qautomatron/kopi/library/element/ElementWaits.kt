@@ -9,6 +9,9 @@ import com.qautomatron.kopi.library.wait.ViewMatcherWaiter
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 
+/**
+ * Element waits
+ */
 interface ElementWaits<T> {
 
     val matcher: Matcher<View>
