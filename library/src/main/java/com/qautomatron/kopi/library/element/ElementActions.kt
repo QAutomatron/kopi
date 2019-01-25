@@ -49,13 +49,13 @@ interface ElementActions<T> {
      * Scroll to element (scrollview)
      * @param nested is element in nestedview (true/false)
      */
-    fun scroll(nested: Boolean = false): Element {
+    fun scroll(nested: Boolean = false): T {
         if (nested) {
             perform(nestedScrollTo())
         } else {
             perform(ViewActions.scrollTo())
         }
-        return this as Element
+        return this as T
     }
 
     /**
