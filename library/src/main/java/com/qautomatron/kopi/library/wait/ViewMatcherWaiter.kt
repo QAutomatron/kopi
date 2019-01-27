@@ -17,29 +17,26 @@ class ViewMatcherWaiter constructor(val viewMatcher: Matcher<View>) {
     /**
      * Specify the Espresso matches which will satisfy the condition
      */
-    fun toMatch(viewChecker: Matcher<View>, inRoot: Matcher<Root>? = null) = waitForCondition(object : Instruction() {
-        override fun getDescription(): String {
-            val desc = StringDescription()
-            desc.appendText("Wait for view ")
-            viewMatcher.describeTo(desc)
-            desc.appendText(" to match ")
-            viewChecker.describeTo(desc)
-            return desc.toString()
-        }
-
-        override fun checkCondition(): Boolean {
-            return try {
-                if (inRoot != null) {
-                    onView(viewMatcher).inRoot(inRoot).check(matches(viewChecker))
-                } else {
-                    onView(viewMatcher).check(matches(viewChecker))
-                }
-                true
-            } catch (e: AssertionError) {
-                false
-            } catch (e: NoMatchingViewException) {
-                false
+    fun toMatch(viewChecker: Matcher<View>, inRoot: Matcher<Root>) =
+        waitForCondition(object : Instruction() {
+            override fun getDescription(): String {
+                val desc = StringDescription()
+                desc.appendText("Wait for view ")
+                viewMatcher.describeTo(desc)
+                desc.appendText(" to match ")
+                viewChecker.describeTo(desc)
+                return desc.toString()
             }
-        }
-    })
+
+            override fun checkCondition(): Boolean {
+                return try {
+                    onView(viewMatcher).inRoot(inRoot).check(matches(viewChecker))
+                    true
+                } catch (e: AssertionError) {
+                    false
+                } catch (e: NoMatchingViewException) {
+                    false
+                }
+            }
+        })
 }
