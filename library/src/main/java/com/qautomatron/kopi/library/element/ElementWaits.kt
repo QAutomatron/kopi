@@ -2,9 +2,9 @@
 
 package com.qautomatron.kopi.library.element
 
-import android.support.test.espresso.Root
-import android.support.test.espresso.matcher.ViewMatchers
 import android.view.View
+import androidx.test.espresso.Root
+import androidx.test.espresso.matcher.ViewMatchers
 import com.qautomatron.kopi.library.wait.ViewMatcherWaiter
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers

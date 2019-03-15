@@ -1,10 +1,10 @@
 package com.qautomatron.kopi.library
 
 import android.content.Context
-import android.support.test.InstrumentationRegistry
+import androidx.test.platform.app.InstrumentationRegistry
 
 val appContext: Context
-    get() = InstrumentationRegistry.getTargetContext()
+    get() = InstrumentationRegistry.getInstrumentation().targetContext
 
 /**
  * Return string from resources

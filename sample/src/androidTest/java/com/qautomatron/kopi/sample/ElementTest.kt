@@ -1,18 +1,15 @@
 package com.qautomatron.kopi.sample
 
-import android.support.test.espresso.matcher.ViewMatchers.withId
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.rule.ActivityTestRule
 import com.qautomatron.kopi.library.element.Element
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 
 /**
  * Test to check Element methods
  */
-@RunWith(AndroidJUnit4::class)
 class ElementTest {
 
     @Rule

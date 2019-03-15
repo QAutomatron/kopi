@@ -1,9 +1,9 @@
 package com.qautomatron.kopi.library.wait
 
 import android.app.Activity
-import android.support.test.InstrumentationRegistry.getInstrumentation
-import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry
-import android.support.test.runner.lifecycle.Stage.RESUMED
+import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
+import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry
+import androidx.test.runner.lifecycle.Stage
 import com.azimolabs.conditionwatcher.Instruction
 
 /**
@@ -16,7 +16,7 @@ abstract class BaseInstruction : Instruction() {
     internal val activityInstance: Activity?
         get() {
             getInstrumentation().runOnMainSync {
-                val resumedActivities = ActivityLifecycleMonitorRegistry.getInstance().getActivitiesInStage(RESUMED)
+                val resumedActivities = ActivityLifecycleMonitorRegistry.getInstance().getActivitiesInStage(Stage.RESUMED)
                 if (resumedActivities.iterator().hasNext()) {
                     currentActivity = resumedActivities.iterator().next()
                 }

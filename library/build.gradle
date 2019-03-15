@@ -13,8 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -29,15 +28,17 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api "com.android.support.test.espresso:espresso-core:$espressoVersion"
-    api "com.android.support.test.espresso:espresso-contrib:$espressoVersion"
-    api "com.android.support.test.espresso:espresso-intents:$espressoVersion"
-    api "com.android.support.test.uiautomator:uiautomator-v18:$uiAutomatorVersion"
+    api "androidx.test.espresso:espresso-core:$espressoVersion"
+    api "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    api "androidx.test.espresso:espresso-intents:$espressoVersion"
+    api "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
     api "com.azimolabs.conditionwatcher:conditionwatcher:$conditionWatcherVersion"
 
     testImplementation 'junit:junit:4.12'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
+    jcenter()
+    google()
     mavenCentral()
 }

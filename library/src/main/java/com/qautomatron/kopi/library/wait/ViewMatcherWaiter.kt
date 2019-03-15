@@ -1,10 +1,10 @@
 package com.qautomatron.kopi.library.wait
 
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.NoMatchingViewException
-import android.support.test.espresso.Root
-import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.view.View
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
+import androidx.test.espresso.Root
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import com.azimolabs.conditionwatcher.ConditionWatcher.waitForCondition
 import com.azimolabs.conditionwatcher.Instruction
 import org.hamcrest.Matcher

@@ -2,11 +2,11 @@
 
 package com.qautomatron.kopi.library.element
 
-import android.support.test.espresso.ViewAssertion
-import android.support.test.espresso.ViewInteraction
-import android.support.test.espresso.assertion.ViewAssertions.doesNotExist
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.ViewAssertion
+import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
 import org.hamcrest.Matchers.anyOf
 import org.hamcrest.Matchers.not
 

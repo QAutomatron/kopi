@@ -1,10 +1,10 @@
 package com.qautomatron.kopi.library.element
 
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.Root
-import android.support.test.espresso.ViewInteraction
-import android.support.test.espresso.matcher.RootMatchers
 import android.view.View
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Root
+import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.matcher.RootMatchers
 import org.hamcrest.Matcher
 
 /**
@@ -13,8 +13,7 @@ import org.hamcrest.Matcher
 class Element(override val matcher: Matcher<View>, override val root: Matcher<Root> = RootMatchers.DEFAULT) :
     ElementActions<Element>, ElementAssertions<Element>, ElementWaits<Element> {
 
-    override val element: ViewInteraction
-        get() = onView(matcher).inRoot(root)
+    override val element: ViewInteraction get() = onView(matcher).inRoot(root)
 
     /**
      * Invoke element function
