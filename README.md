@@ -7,7 +7,7 @@ Element wrapper library for Espresso testing framework
 #### How to use with Gradle:
 
 Repository: 
-```
+```gradle
 	allprojects {
 		repositories {
 			maven { url 'https://jitpack.io' }
@@ -15,7 +15,7 @@ Repository:
 	}
 ```
 Dependency: 
-```
+```gradle
 	dependencies {
 	        androidTestImpl 'com.github.QAutomatron:kopi:0.4.0'
 	}
@@ -25,18 +25,18 @@ Dependency:
 #### Usage:
 
 Define element:
-```
+```kotlin
 val field = Element(withId(R.id.field))
 ```
 Use element:
-```
+```kotlin
 field.tap()
 ```
 Assert element:
-```
+```kotlin
 field.sameAs("my_text")
 ```
 Wait for element:
-```
+```kotlin
 field.waitForVisibility()
 ```
