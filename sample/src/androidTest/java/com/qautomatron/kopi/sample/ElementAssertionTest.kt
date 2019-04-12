@@ -3,14 +3,13 @@ package com.qautomatron.kopi.sample
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.qautomatron.kopi.library.element.Element
-import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 
 /**
- * Test to check Element methods
+ * Check for ElementAssertion
  */
-class ElementTest {
+class ElementAssertionTest {
 
     @Rule
     @JvmField
@@ -29,8 +28,7 @@ class ElementTest {
     }
 
     @Test
-    fun should_get_text_action_when_use_action() {
-        val text = element.getText()
-        assertEquals("Hello World!", text)
+    fun should_be_same_as_text() {
+        element.sameAs(R.string.text_hello)
     }
 }

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Kopi</string>
+    <string name="button_change_text">Change</string>
+    <string name="button_remove_text">Remove</string>
+    <string name="text_hello">Hello</string>
+    <string name="text_changed">Changed</string>
 </resources>
