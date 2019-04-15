@@ -31,4 +31,17 @@ class ElementAssertionTest {
     fun should_be_same_as_text() {
         element.sameAs(R.string.text_hello)
     }
+
+    @Test
+    fun should_be_enabled() {
+        val button = Element(withId(R.id.button_remove_text))
+        button.shouldBeEnabled()
+    }
+
+    @Test
+    fun should_not_be_enabled() {
+        val button = Element(withId(R.id.button_remove_text))
+        button.tap()
+        button.shouldNotBeEnabled()
+    }
 }

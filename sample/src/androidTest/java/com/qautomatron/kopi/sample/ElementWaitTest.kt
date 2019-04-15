@@ -21,6 +21,7 @@ class ElementWaitTest {
     @Test
     fun should_wait_for_not_be_present() {
         removeButton.tap()
+        // Element will be removed after couple of sec
         textElement.waitForNotPresent()
     }
 }
