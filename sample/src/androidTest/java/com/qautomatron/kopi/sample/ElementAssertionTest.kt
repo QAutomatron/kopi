@@ -28,8 +28,13 @@ class ElementAssertionTest {
     }
 
     @Test
-    fun should_be_same_as_text() {
+    fun should_be_same_as_text_resource() {
         element.sameAs(R.string.text_hello)
+    }
+
+    @Test
+    fun should_be_same_as_text() {
+        element.sameAs("Hello")
     }
 
     @Test
