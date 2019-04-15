@@ -8,25 +8,15 @@ import org.junit.Rule
 import org.junit.Test
 
 /**
- * Test to check Element methods
+ * Check for ElementAction
  */
-class ElementTest {
+class ElementActionTest {
 
     @Rule
     @JvmField
     val activityRule = ActivityTestRule(MainActivity::class.java)
 
     private val element = Element(withId(R.id.message_text))
-
-    @Test
-    fun should_be_present() {
-        element.shouldBePresent()
-    }
-
-    @Test
-    fun should_be_visible() {
-        element.shouldBeDisplayed()
-    }
 
     @Test
     fun should_get_text_action_when_use_action() {

@@ -4,6 +4,8 @@ package com.qautomatron.kopi.library.element
 
 import android.view.View
 import androidx.test.espresso.Root
+import androidx.test.espresso.ViewAssertion
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.matcher.ViewMatchers
 import com.qautomatron.kopi.library.wait.ViewMatcherWaiter
 import org.hamcrest.Matcher
@@ -42,11 +44,24 @@ interface ElementWaits<T> {
         return this as T
     }
 
+    fun waitForNotPresent(): T {
+        waitFor(doesNotExist())
+        return this as T
+    }
+
     /**
      * Wait for specific matcher
      */
     fun waitFor(matcher: Matcher<View>): T {
-        ViewMatcherWaiter(this.matcher).toMatch(matcher, root)
+        ViewMatcherWaiter(this.matcher, root).toMatch(matcher)
+        return this as T
+    }
+
+    /**
+     * Wait for specific assertion
+     */
+    fun waitFor(assertion: ViewAssertion): T {
+        ViewMatcherWaiter(this.matcher, root).toCheck(assertion)
         return this as T
     }
 }
