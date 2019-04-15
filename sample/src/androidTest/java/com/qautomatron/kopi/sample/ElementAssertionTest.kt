@@ -3,6 +3,7 @@ package com.qautomatron.kopi.sample
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.qautomatron.kopi.library.element.Element
+import com.qautomatron.kopi.library.resourceToString
 import org.junit.Rule
 import org.junit.Test
 
@@ -34,7 +35,7 @@ class ElementAssertionTest {
 
     @Test
     fun should_be_same_as_text() {
-        element.sameAs("Hello")
+        element.sameAs(resourceToString(R.string.text_hello))
     }
 
     @Test
