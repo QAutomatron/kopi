@@ -23,20 +23,12 @@ Dependency:
 
 
 #### Usage:
-
-Define element:
 ```kotlin
 val field = Element(withId(R.id.field))
-```
-Use element:
-```kotlin
+// Tap element
 field.tap()
-```
-Assert element:
-```kotlin
+// Assert field
 field.sameAs("my_text")
-```
-Wait for element:
-```kotlin
+// Wait for visibility
 field.waitForVisibility()
 ```
