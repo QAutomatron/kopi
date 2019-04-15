@@ -32,5 +32,28 @@
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="133dp"
             android:layout_marginStart="133dp"/>
+    <CheckBox
+            android:text="CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkbox_empty"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="87dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp"/>
+    <CheckBox
+            android:text="CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkbox_mark"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="132dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp" android:checked="true"/>
+    <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_disabled" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="183dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:enabled="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
