@@ -3,6 +3,7 @@ package com.qautomatron.kopi.sample
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
+import android.view.View.INVISIBLE
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button_remove_text)
         button.isEnabled = false
         LongOperation().execute()
+    }
+
+    fun hideButton(view: View) {
+        val button = findViewById<Button>(R.id.button_hide)
+        button.visibility = INVISIBLE
     }
 
     inner class LongOperation : AsyncTask<String, Void, String>() {

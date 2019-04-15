@@ -55,5 +55,12 @@
             android:id="@+id/button_disabled" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="183dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:enabled="false"/>
+    <Button
+            android:text="Hide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_hide" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="246dp" android:layout_marginStart="246dp" android:onClick="hideButton"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

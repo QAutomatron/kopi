@@ -63,4 +63,11 @@ class ElementAssertionTest {
         val checkbox = Element(withId(R.id.checkbox_mark))
         checkbox.shouldBeChecked()
     }
+
+    @Test
+    fun should_not_be_visible() {
+        val button =  Element(withId(R.id.button_hide))
+        button.tap()
+        button.shouldNotBeDisplayed()
+    }
 }
