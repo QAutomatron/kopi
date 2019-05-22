@@ -65,12 +65,16 @@
     <TextView
             android:text="Text1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="163dp"
-            tools:layout_editor_absoluteX="176dp" android:id="@+id/sameId"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/sameId1" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="163dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="176dp" android:layout_marginStart="176dp"/>
     <TextView
             android:text="Text2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="162dp"
-            tools:layout_editor_absoluteX="246dp" android:id="@+id/sameId"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/sameId2" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="162dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="246dp" android:layout_marginStart="246dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         parentLinearLayout = findViewById(R.id.parent_layout)
+
+        // Set same id for texts
+        val sameIdText2 = findViewById<TextView>(R.id.sameId2)
+        sameIdText2.id = R.id.sameId1
     }
 
     fun changeText(view: View) {

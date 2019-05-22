@@ -16,7 +16,7 @@ class ElementMatcherTest {
     @JvmField
     val activityRule = ActivityTestRule(MainActivity::class.java)
 
-    private val element = Element(first(withId(R.id.sameId)))
+    private val element = Element(first(withId(R.id.sameId1)))
 
     @Test
     fun should_get_first_element() {
