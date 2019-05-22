@@ -3,25 +3,23 @@ package com.qautomatron.kopi.sample
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.qautomatron.kopi.library.element.Element
-import com.qautomatron.kopi.library.resourceToString
-import org.junit.Assert.assertEquals
+import com.qautomatron.kopi.library.matcher.first
 import org.junit.Rule
 import org.junit.Test
 
 /**
  * Check for ElementAction
  */
-class ElementActionTest {
+class ElementMatcherTest {
 
     @Rule
     @JvmField
     val activityRule = ActivityTestRule(MainActivity::class.java)
 
-    private val element = Element(withId(R.id.message_text))
+    private val element = Element(first(withId(R.id.sameId)))
 
     @Test
-    fun should_get_text_action_when_use_action() {
-        val text = element.getText()
-        assertEquals(resourceToString(R.string.text_hello), text)
+    fun should_get_first_element() {
+        element.sameAs("Text1")
     }
 }
