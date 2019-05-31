@@ -17,7 +17,7 @@ Repository:
 Dependency: 
 ```gradle
 	dependencies {
-	        androidTestImpl 'com.github.QAutomatron:kopi:0.4.0'
+	        androidTestImpl 'com.github.QAutomatron:kopi:0.6.0'
 	}
 ```
 
