@@ -67,6 +67,16 @@ interface ElementAssertions<T> {
     fun shouldNotBeChecked() = check(matches(isNotChecked()))
 
     /**
+     * Check that element is selected
+     */
+    fun shouldBeSelected() = check(matches(isSelected()))
+
+    /**
+     * Check that element is not selected
+     */
+    fun shouldNotBeSelected() = check(matches(not(isSelected())))
+
+    /**
      * Check element text
      * @param text expected text
      */

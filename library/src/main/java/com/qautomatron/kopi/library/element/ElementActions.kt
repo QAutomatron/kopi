@@ -4,7 +4,7 @@ package com.qautomatron.kopi.library.element
 
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewInteraction
-import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.uiautomator.Direction
 import com.qautomatron.kopi.library.element.action.GetTextAction
 import com.qautomatron.kopi.library.element.action.nestedScrollTo
@@ -19,22 +19,22 @@ interface ElementActions<T> {
     /**
      * Replace text in element
      */
-    fun replace(text: String) = perform(ViewActions.replaceText(text))
+    fun replace(text: String) = perform(replaceText(text))
 
     /**
      * Tap on element
      */
-    fun tap() = perform(ViewActions.click())
+    fun tap() = perform(click())
 
     /**
      * Double tap on element
      */
-    fun doubleTap() = perform(ViewActions.doubleClick())
+    fun doubleTap() = perform(doubleClick())
 
     /**
      * Long tap on element
      */
-    fun longTap() = perform(ViewActions.longClick())
+    fun longTap() = perform(longClick())
 
     /**
      * Type text into element
@@ -44,19 +44,19 @@ interface ElementActions<T> {
      */
     fun type(text: String, clear: Boolean = false, hideKeyboard: Boolean = false) {
         if (clear) clear()
-        perform(ViewActions.typeText(text))
-        if (hideKeyboard) ViewActions.closeSoftKeyboard()
+        perform(typeText(text))
+        if (hideKeyboard) closeSoftKeyboard()
     }
 
     /**
      * Scroll to element (scrollview)
-     * @param nested is element in nestedview (true/false)
+     * @param nested is element in nested view (true/false)
      */
     fun scroll(nested: Boolean = false): T {
         if (nested) {
             perform(nestedScrollTo())
         } else {
-            perform(ViewActions.scrollTo())
+            perform(scrollTo())
         }
         return this as T
     }
@@ -73,7 +73,7 @@ interface ElementActions<T> {
     /**
      * Clear text in element
      */
-    fun clear() = perform(ViewActions.clearText())
+    fun clear() = perform(clearText())
 
     /**
      * Perform action and return element
@@ -90,10 +90,10 @@ interface ElementActions<T> {
      */
     fun swipe(direction: Direction) {
         when (direction) {
-            Direction.LEFT -> perform(ViewActions.swipeLeft())
-            Direction.RIGHT -> perform(ViewActions.swipeRight())
-            Direction.UP -> perform(ViewActions.swipeUp())
-            Direction.DOWN -> perform(ViewActions.swipeDown())
+            Direction.LEFT -> perform(swipeLeft())
+            Direction.RIGHT -> perform(swipeRight())
+            Direction.UP -> perform(swipeUp())
+            Direction.DOWN -> perform(swipeDown())
         }
     }
 }
