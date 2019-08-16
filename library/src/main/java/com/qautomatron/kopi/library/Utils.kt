@@ -1,14 +1,16 @@
 package com.qautomatron.kopi.library
 
+import android.app.Instrumentation
 import android.content.Context
 import androidx.test.platform.app.InstrumentationRegistry
 
+val instrumentation: Instrumentation
+    get() = InstrumentationRegistry.getInstrumentation()
+
 val appContext: Context
-    get() = InstrumentationRegistry.getInstrumentation().targetContext
+    get() = instrumentation.targetContext
 
 /**
  * Return string from resources
  */
-fun resourceToString(resource: Int, vararg a: Any): String {
-    return appContext.getString(resource, *a)
-}
+fun resourceToString(resource: Int, vararg a: Any): String = appContext.getString(resource, *a)
