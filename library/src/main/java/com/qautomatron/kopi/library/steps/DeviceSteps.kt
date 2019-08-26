@@ -3,12 +3,12 @@ package com.qautomatron.kopi.library.steps
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.By
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.Until
 import com.azimolabs.conditionwatcher.ConditionWatcher
 import com.qautomatron.kopi.library.element.action.SleepAction
+import com.qautomatron.kopi.library.instrumentation
 import com.qautomatron.kopi.library.wait.WaitForActivity
 import org.junit.Assert.assertTrue
 
@@ -26,7 +26,7 @@ object DeviceSteps {
      * Will use UI Automator to wait for package with name to be active
      */
     fun packageShouldBeOpened(packageTitle: String, timeoutInSec: Int = 5) {
-        val mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        val mDevice = UiDevice.getInstance(instrumentation)
 
         assertTrue(
             "Package <$packageTitle> should be present on screen",
