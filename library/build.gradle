@@ -2,13 +2,13 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
-    id 'maven-publish'
+    id 'digital.wup.android-maven-publish' version '3.6.2'
 }
+
+version = "0.6.1.1"
 
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 15
@@ -40,8 +40,29 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
 repositories {
     jcenter()
     google()
     mavenCentral()
+}
+
+publishing {
+    publications {
+        mavenAar(MavenPublication) {
+            from components.android
+            groupId 'com.qautomatron'
+            artifactId 'kopi'
+            version version
+        }
+    }
+    repositories {
+        maven {
+            url "https://maven.pkg.github.com/qautomatron/kopi"
+            credentials {
+                username 'qautomatron'
+                password System.getenv('GITHUB_TOKEN')
+            }
+        }
+    }
 }
