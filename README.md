@@ -1,5 +1,6 @@
 # kopi
 [![Build Status](https://travis-ci.org/QAutomatron/kopi.svg?branch=master)](https://travis-ci.org/QAutomatron/kopi)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FQAutomatron%2Fkopi.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FQAutomatron%2Fkopi?ref=badge_shield)
 [![](https://jitpack.io/v/QAutomatron/kopi.svg)](https://jitpack.io/#QAutomatron/kopi)
 
 Element wrapper library for Espresso testing framework
@@ -32,3 +33,7 @@ field.sameAs("my_text")
 // Wait for visibility
 field.waitForVisibility()
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FQAutomatron%2Fkopi.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FQAutomatron%2Fkopi?ref=badge_large)
