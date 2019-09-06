@@ -4,11 +4,9 @@ import android.app.Instrumentation
 import android.content.Context
 import androidx.test.platform.app.InstrumentationRegistry
 
-val instrumentation: Instrumentation
-    get() = InstrumentationRegistry.getInstrumentation()
-
-val appContext: Context
-    get() = instrumentation.targetContext
+val instrumentation: Instrumentation get() = InstrumentationRegistry.getInstrumentation()
+val targetContext: Context get() = instrumentation.targetContext
+val appContext: Context get() = targetContext.applicationContext
 
 /**
  * Return string from resources
