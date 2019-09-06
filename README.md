@@ -6,7 +6,7 @@ Element wrapper library for Espresso testing framework
 
 #### How to use with Gradle:
 
-Repository: 
+Add repository (jitpack):
 ```gradle
 	allprojects {
 		repositories {
@@ -17,7 +17,7 @@ Repository:
 Dependency: 
 ```gradle
 	dependencies {
-	        androidTestImpl 'com.github.QAutomatron:kopi:0.6.1'
+	        androidTestImpl 'com.github.QAutomatron:kopi:0.6.2'
 	}
 ```
 
