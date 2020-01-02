@@ -37,7 +37,7 @@ dependencies {
     api "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
     api "com.azimolabs.conditionwatcher:conditionwatcher:$conditionWatcherVersion"
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
