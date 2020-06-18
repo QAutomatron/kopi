@@ -3,8 +3,8 @@ package com.qautomatron.kopi.library.wait
 import android.app.Activity
 import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry
 import androidx.test.runner.lifecycle.Stage
-import com.azimolabs.conditionwatcher.Instruction
 import com.qautomatron.kopi.library.instrumentation
+import com.qautomatron.kopi.library.watcher.Instruction
 
 /**
  * Base instruction to provide activity to watchers

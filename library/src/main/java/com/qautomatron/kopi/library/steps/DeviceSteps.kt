@@ -6,10 +6,10 @@ import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.uiautomator.By
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.Until
-import com.azimolabs.conditionwatcher.ConditionWatcher
 import com.qautomatron.kopi.library.element.action.SleepAction
 import com.qautomatron.kopi.library.instrumentation
 import com.qautomatron.kopi.library.wait.WaitForActivity
+import com.qautomatron.kopi.library.watcher.Watcher
 import org.junit.Assert.assertTrue
 
 /**
@@ -20,7 +20,7 @@ object DeviceSteps {
     /**
      * Wait for activity by name
      */
-    fun waitForActivity(fullName: String) = ConditionWatcher.waitForCondition(WaitForActivity(fullName))
+    fun waitForActivity(fullName: String) = Watcher.waitForCondition(WaitForActivity(fullName))
 
     /**
      * Will use UI Automator to wait for package with name to be active
