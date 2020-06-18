@@ -7,8 +7,8 @@ import androidx.test.espresso.Root
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.RootMatchers
-import com.azimolabs.conditionwatcher.ConditionWatcher.waitForCondition
-import com.azimolabs.conditionwatcher.Instruction
+import com.qautomatron.kopi.library.watcher.Instruction
+import com.qautomatron.kopi.library.watcher.Watcher.waitForCondition
 import org.hamcrest.Matcher
 import org.hamcrest.StringDescription
 
@@ -34,12 +34,13 @@ class ViewMatcherWaiter constructor(val viewMatcher: Matcher<View>, val inRoot: 
      */
     fun toMatch(viewChecker: Matcher<View>) =
         waitForCondition(object : Instruction() {
-            override fun getDescription(): String {
-                val desc = desc
-                desc.appendText(" to match ")
-                viewChecker.describeTo(desc)
-                return desc.toString()
-            }
+            override val description: String
+                get() {
+                    val desc = desc
+                    desc.appendText(" to match ")
+                    viewChecker.describeTo(desc)
+                    return desc.toString()
+                }
 
             override fun checkCondition(): Boolean {
                 return try {
@@ -55,7 +56,8 @@ class ViewMatcherWaiter constructor(val viewMatcher: Matcher<View>, val inRoot: 
 
     fun toCheck(viewAssertion: ViewAssertion) =
         waitForCondition(object : Instruction() {
-            override fun getDescription(): String = desc.appendText(" to check ").toString()
+            override val description: String
+                get() = desc.appendText(" to check ").toString()
 
             override fun checkCondition(): Boolean {
                 return try {
