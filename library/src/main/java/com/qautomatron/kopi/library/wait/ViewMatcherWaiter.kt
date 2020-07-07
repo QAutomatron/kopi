@@ -46,13 +46,10 @@ class ViewMatcherWaiter constructor(val viewMatcher: Matcher<View>, val inRoot: 
                 return try {
                     onView(viewMatcher).inRoot(inRoot).check(matches(viewChecker))
                     true
-                } catch (e: Exception) {
-                    when(e) {
-                        is AssertionError, is NoMatchingViewException -> {
-                            return false
-                        }
-                        else -> throw e
-                    }
+                } catch (e: AssertionError) {
+                    false
+                } catch (e: NoMatchingViewException) {
+                    false
                 }
             }
         })
@@ -70,13 +67,10 @@ class ViewMatcherWaiter constructor(val viewMatcher: Matcher<View>, val inRoot: 
                 return try {
                     onView(viewMatcher).inRoot(inRoot).check(viewAssertion)
                     true
-                } catch (e: Exception) {
-                    when(e) {
-                        is AssertionError, is NoMatchingViewException -> {
-                            return false
-                        }
-                        else -> throw e
-                    }
+                } catch (e: AssertionError) {
+                    false
+                } catch (e: NoMatchingViewException) {
+                    false
                 }
             }
         })
