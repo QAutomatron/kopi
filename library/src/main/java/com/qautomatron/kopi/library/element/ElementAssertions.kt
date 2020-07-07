@@ -2,11 +2,14 @@
 
 package com.qautomatron.kopi.library.element
 
+import android.os.SystemClock
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import org.hamcrest.Matchers.anyOf
 import org.hamcrest.Matchers.not
 
@@ -17,11 +20,26 @@ interface ElementAssertions<T> {
     val element: ViewInteraction
 
     /**
-     * Universal assertion method
+     * Universal assertion method with retry
      * @param assertion assertion
      */
     fun check(assertion: ViewAssertion): T {
-        element.check(assertion)
+        var result: Boolean
+        var exception: Throwable? = null
+        val endTime = SystemClock.elapsedRealtime() + ElementAssertionConfig.timeout
+        do {
+            result = true
+            element.withFailureHandler { error, _ ->
+                if (error::class.java in ElementAssertionConfig.allowedExceptions) {
+                    result = false
+                    exception = error
+                } else throw error
+            }.check(assertion)
+            if (!result) runBlocking { delay(ElementAssertionConfig.interval) }
+        } while (SystemClock.elapsedRealtime() < endTime && !result)
+        if (!result && exception != null) {
+            throw exception as Throwable
+        }
         return this as T
     }
 

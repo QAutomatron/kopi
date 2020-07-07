@@ -4,7 +4,6 @@ buildscript {
     ext {
         espressoVersion = '3.2.0'
         uiAutomatorVersion = '2.2.0'
-        conditionWatcherVersion = '0.2'
     }
 
     repositories {

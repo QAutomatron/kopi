@@ -2,12 +2,15 @@
 
 package com.qautomatron.kopi.library.element
 
+import android.os.SystemClock
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.uiautomator.Direction
 import com.qautomatron.kopi.library.element.action.GetTextAction
 import com.qautomatron.kopi.library.element.action.nestedScrollTo
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 /**
  * Element actions
@@ -15,6 +18,32 @@ import com.qautomatron.kopi.library.element.action.nestedScrollTo
 interface ElementActions<T> {
 
     val element: ViewInteraction
+
+    /**
+     * Perform action with retry and return element
+     * @param action action to perform
+     */
+    fun perform(vararg action: ViewAction): T {
+        action.forEach {
+            var result: Boolean
+            var exception: Throwable? = null
+            val endTime = SystemClock.elapsedRealtime() + ElementActionConfig.timeout
+            do {
+                result = true
+                element.withFailureHandler { error, _ ->
+                    if (error::class.java in ElementActionConfig.allowedExceptions) {
+                        result = false
+                        exception = error
+                    } else throw error
+                }.perform(it)
+                if (!result) runBlocking { delay(ElementActionConfig.interval) }
+            } while (SystemClock.elapsedRealtime() < endTime && !result)
+            if (!result && exception != null) {
+                throw exception as Throwable
+            }
+        }
+        return this as T
+    }
 
     /**
      * Replace text in element
@@ -74,15 +103,6 @@ interface ElementActions<T> {
      * Clear text in element
      */
     fun clear() = perform(clearText())
-
-    /**
-     * Perform action and return element
-     * @param action action to perform
-     */
-    fun perform(vararg action: ViewAction): T {
-        action.forEach { element.perform(it) }
-        return this as T
-    }
 
     /**
      * Swipe on element
