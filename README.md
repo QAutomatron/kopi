@@ -17,7 +17,7 @@ Add repository (jitpack):
 Dependency: 
 ```gradle
 	dependencies {
-	        androidTestImpl 'com.github.QAutomatron:kopi:0.6.3'
+	        androidTestImpl 'com.github.QAutomatron:kopi:version'
 	}
 ```
 
