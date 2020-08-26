@@ -2,7 +2,7 @@
 buildscript {
     ext.kotlin_version = '1.4.0'
     ext {
-        espressoVersion = '3.2.0'
+        espressoVersion = '3.3.0'
         uiAutomatorVersion = '2.2.0'
     }
 
