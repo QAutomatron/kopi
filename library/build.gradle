@@ -5,14 +5,14 @@ plugins {
     id 'digital.wup.android-maven-publish' version '3.6.3'
 }
 
-version = "0.7"
+version = "0.7.1"
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
