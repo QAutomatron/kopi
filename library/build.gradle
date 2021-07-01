@@ -5,8 +5,6 @@ plugins {
     id 'maven-publish'
 }
 
-version = "0.8"
-
 android {
     compileSdkVersion 30
 
@@ -62,7 +60,7 @@ afterEvaluate {
                 from components.release
                 groupId 'com.qautomatron'
                 artifactId 'kopi'
-                version version
+                version '0.8'
             }
         }
     }
