@@ -14,7 +14,6 @@ android {
         versionCode 1
         versionName "1.0"
 //        multiDexEnabled true
-
 //        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -28,17 +27,15 @@ android {
 }
 
 dependencies {
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
-    implementation 'androidx.test:runner:1.4.0'
-
-    testImplementation 'junit:junit:4.13.2'
-
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt"
     implementation "androidx.test.espresso:espresso-core:$espressoVersion"
     implementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     implementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     implementation "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt"
+    implementation 'androidx.test:runner:1.4.0'
+
+    testImplementation 'junit:junit:4.13.2'
 }
 
 repositories {
@@ -55,7 +52,7 @@ afterEvaluate {
                 from components.release
                 groupId 'com.qautomatron'
                 artifactId 'kopi'
-                version '0.8'
+//                version '0.8'
             }
         }
     }
