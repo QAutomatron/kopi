@@ -42,7 +42,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.2'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2-native-mt"
 }
 
 repositories {
