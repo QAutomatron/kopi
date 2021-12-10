@@ -6,16 +6,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
+    compileSdkVersion 31
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -29,24 +24,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-RC2"
     implementation "androidx.test.espresso:espresso-core:$espressoVersion"
     implementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     implementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     implementation "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
-    implementation 'androidx.test:runner:1.4.0'
+//    implementation 'androidx.test:runner:1.4.0'
 
     testImplementation 'junit:junit:4.13.2'
 }
 
 repositories {
-    google()
     mavenCentral()
+    google()
 }
 
 
