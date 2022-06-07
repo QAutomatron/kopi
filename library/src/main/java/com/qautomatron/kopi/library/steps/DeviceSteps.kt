@@ -20,7 +20,8 @@ object DeviceSteps {
     /**
      * Wait for activity by name
      */
-    fun waitForActivity(fullName: String) = Watcher.waitForCondition(WaitForActivity(fullName))
+    fun waitForActivity(fullName: String, timeoutInMillis: Int?, pollingInMillis: Int?) =
+        Watcher.waitForCondition(WaitForActivity(fullName), timeoutInMillis, pollingInMillis)
 
     /**
      * Will use UI Automator to wait for package with name to be active
@@ -30,7 +31,10 @@ object DeviceSteps {
 
         assertTrue(
             "Package <$packageTitle> should be present on screen",
-            mDevice.wait(Until.hasObject(By.pkg(packageTitle).depth(0)), (timeoutInSec * 1000).toLong())
+            mDevice.wait(
+                Until.hasObject(By.pkg(packageTitle).depth(0)),
+                (timeoutInSec * 1000).toLong()
+            )
         )
     }
 
