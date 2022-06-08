@@ -8,6 +8,7 @@ import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import com.qautomatron.kopi.library.matcher.IsNotMovingMatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.Matchers.anyOf
@@ -105,4 +106,10 @@ interface ElementAssertions<T> {
      * @param resourceId expected text by resourceId
      */
     fun sameAs(resourceId: Int) = check(matches(withText(resourceId)))
+
+    /**
+     * Check element is not moving
+     * @param timeoutInMills
+     */
+    fun isNotMoving(timeoutInMills: Int? = 1000) = check(matches(IsNotMovingMatcher(timeoutInMills)))
 }

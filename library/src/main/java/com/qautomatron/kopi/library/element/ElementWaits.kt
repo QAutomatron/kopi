@@ -5,9 +5,13 @@ package com.qautomatron.kopi.library.element
 import android.view.View
 import androidx.test.espresso.Root
 import androidx.test.espresso.ViewAssertion
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.qautomatron.kopi.library.wait.ViewMatcherWaiter
+import org.hamcrest.CoreMatchers
+import org.hamcrest.CoreMatchers.containsString
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 
@@ -53,6 +57,20 @@ interface ElementWaits<T> {
         waitFor(doesNotExist())
         return this as T
     }
+
+    fun waitToBeSelected() = this.waitFor(ViewAssertions.matches(ViewMatchers.isSelected()))
+    fun waitToBeEnabled() = this.waitFor(ViewAssertions.matches(ViewMatchers.isEnabled()))
+    fun waitToBeDisabled() = this.waitFor(
+        ViewAssertions.matches(
+            CoreMatchers.not(
+                ViewMatchers.isEnabled()
+            )
+        )
+    )
+    fun waitToBeClickable() = this.waitFor(ViewAssertions.matches(ViewMatchers.isClickable()))
+    fun waitForText(text: String) = this.waitFor(withText(text))
+    fun waitForText(resId: Int) = this.waitFor(withText(resId))
+    fun waitForTextContains(text: String) = this.waitFor(withText(containsString(text)))
 
     /**
      * Wait for specific matcher

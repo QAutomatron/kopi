@@ -20,7 +20,7 @@ object DeviceSteps {
     /**
      * Wait for activity by name
      */
-    fun waitForActivity(fullName: String, timeoutInMillis: Int?, pollingInMillis: Int?) =
+    fun waitForActivity(fullName: String, timeoutInMillis: Int? = null, pollingInMillis: Int? = null) =
         Watcher.waitForCondition(WaitForActivity(fullName), timeoutInMillis, pollingInMillis)
 
     /**

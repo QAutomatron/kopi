@@ -3,6 +3,9 @@ package com.qautomatron.kopi.library.element
 import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.PerformException
 
+/**
+ * Timeout for check()
+ */
 object ElementAssertionConfig {
         var timeout = 3_000L
         var interval: Long = 250
