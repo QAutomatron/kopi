@@ -15,7 +15,12 @@ import org.hamcrest.StringDescription
 /**
  * Used by the waitForView() shorthand fluent function
  */
-class ViewMatcherWaiter constructor(val viewMatcher: Matcher<View>, val inRoot: Matcher<Root>) {
+class ViewMatcherWaiter constructor(
+    val viewMatcher: Matcher<View>,
+    val inRoot: Matcher<Root>,
+    val timeoutInMillis: Int?,
+    val pollingInMillis: Int?
+) {
 
     private val desc: StringDescription
         get() {
@@ -52,7 +57,7 @@ class ViewMatcherWaiter constructor(val viewMatcher: Matcher<View>, val inRoot: 
                     false
                 }
             }
-        })
+        }, timeoutInMillis, pollingInMillis)
 
     fun toCheck(viewAssertion: ViewAssertion) =
         waitForCondition(object : Instruction() {
@@ -73,5 +78,5 @@ class ViewMatcherWaiter constructor(val viewMatcher: Matcher<View>, val inRoot: 
                     false
                 }
             }
-        })
+        }, timeoutInMillis, pollingInMillis)
 }

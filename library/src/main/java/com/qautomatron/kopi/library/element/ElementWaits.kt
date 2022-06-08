@@ -31,7 +31,7 @@ interface ElementWaits<T> {
     /**
      * Wait for element invisibility
      */
-    fun waitForInvisibility(): T{
+    fun waitForInvisibility(): T {
         waitFor(Matchers.not(ViewMatchers.isDisplayed()))
         return this as T
     }
@@ -40,7 +40,12 @@ interface ElementWaits<T> {
      * Wait for element present
      */
     fun waitForPresent(): T {
-        waitFor(Matchers.anyOf(ViewMatchers.isDisplayed(), Matchers.not(ViewMatchers.isDisplayed())))
+        waitFor(
+            Matchers.anyOf(
+                ViewMatchers.isDisplayed(),
+                Matchers.not(ViewMatchers.isDisplayed())
+            )
+        )
         return this as T
     }
 
@@ -52,16 +57,24 @@ interface ElementWaits<T> {
     /**
      * Wait for specific matcher
      */
-    fun waitFor(matcher: Matcher<View>): T {
-        ViewMatcherWaiter(this.matcher, root).toMatch(matcher)
+    fun waitFor(
+        matcher: Matcher<View>,
+        timeoutInMillis: Int? = null,
+        pollingInMillis: Int? = null
+    ): T {
+        ViewMatcherWaiter(this.matcher, root, timeoutInMillis, pollingInMillis).toMatch(matcher)
         return this as T
     }
 
     /**
      * Wait for specific assertion
      */
-    fun waitFor(assertion: ViewAssertion): T {
-        ViewMatcherWaiter(this.matcher, root).toCheck(assertion)
+    fun waitFor(
+        assertion: ViewAssertion,
+        timeoutInMillis: Int? = null,
+        pollingInMillis: Int? = null
+    ): T {
+        ViewMatcherWaiter(this.matcher, root, timeoutInMillis, pollingInMillis).toCheck(assertion)
         return this as T
     }
 }

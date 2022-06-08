@@ -1,11 +1,9 @@
 # kopi
-[![Build Status](https://travis-ci.org/QAutomatron/kopi.svg?branch=master)](https://travis-ci.org/QAutomatron/kopi)
 [![](https://jitpack.io/v/QAutomatron/kopi.svg)](https://jitpack.io/#QAutomatron/kopi)
 
 Element wrapper library for Espresso testing framework
 
 #### How to use with Gradle:
-
 Add repository (jitpack):
 ```gradle
 	allprojects {
@@ -20,15 +18,13 @@ Dependency:
 	        androidTestImpl 'com.github.QAutomatron:kopi:version'
 	}
 ```
-
-
 #### Usage:
 ```kotlin
-val field = Element(withId(R.id.field))
+val fieldById = Element(withId(R.id.field))
 // Tap element
-field.tap()
+fieldById.tap()
 // Assert field
-field.sameAs("my_text")
+fieldById.sameAs("my_text")
 // Wait for visibility
-field.waitForVisibility()
+fieldById.waitForVisibility()
 ```
