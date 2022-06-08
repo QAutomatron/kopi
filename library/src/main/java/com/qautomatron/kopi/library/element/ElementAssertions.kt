@@ -111,5 +111,5 @@ interface ElementAssertions<T> {
      * Check element is not moving
      * @param timeoutInMills
      */
-    fun isNotMoving(timeoutInMills: Int? = 1000) = check(matches(IsNotMovingMatcher(timeoutInMills)))
+    fun isNotMoving(timeoutInMills: Int? = null) = check(matches(IsNotMovingMatcher(timeoutInMills)))
 }
