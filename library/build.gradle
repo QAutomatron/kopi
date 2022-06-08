@@ -57,7 +57,7 @@ afterEvaluate {
                 from components.release
                 groupId 'com.qautomatron'
                 artifactId 'kopi'
-                version '0.9'
+                version '0.9.2'
             }
         }
     }
