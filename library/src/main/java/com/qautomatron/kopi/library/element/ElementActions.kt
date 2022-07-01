@@ -8,6 +8,7 @@ import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.uiautomator.Direction
 import com.qautomatron.kopi.library.element.action.GetTextAction
+import com.qautomatron.kopi.library.element.action.PressAndHoldAction
 import com.qautomatron.kopi.library.element.action.nestedScrollTo
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -64,6 +65,11 @@ interface ElementActions<T> {
      * Long tap on element
      */
     fun longTap() = perform(longClick())
+
+    /**
+     * Press and hold on element
+     */
+    fun pressAndHold() = perform(PressAndHoldAction())
 
     /**
      * Type text into element
